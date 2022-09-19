@@ -11,7 +11,7 @@ const counter = document.getElementById("counter");
 const timeGauge = document.getElementById("timeGauge");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
-// const qNumber = document.getElementById("qNumber")
+// const qNumber = document.getElementById("qNumber").
 
 // create our questions
 let questions = [
