@@ -162,8 +162,8 @@ function startQuiz() {
     renderQuestion();
     quiz.style.display = "block";
     renderProgress();
-    renderCounter();
-    TIMER = setInterval(renderCounter, 1000); // 1000ms = 1s
+    // renderCounter();
+    // TIMER = setInterval(renderCounter, 1000); // 1000ms = 1s
 }
 
 // render progress
@@ -175,25 +175,25 @@ function renderProgress() {
 
 // counter render
 
-function renderCounter() {
-    if (count <= questionTime) {
-        counter.innerHTML = count;
-        timeGauge.style.width = count * gaugeUnit + "px";
-        count++
-    } else {
-        count = 0;
-        // change progress color to red
-        answerIsWrong();
-        if (runningQuestion < lastQuestion) {
-            runningQuestion++;
-            renderQuestion();
-        } else {
-            // end the quiz and show the score
-            clearInterval(TIMER);
-            scoreRender();
-        }
-    }
-}
+// function renderCounter() {
+//     if (count <= questionTime) {
+//         counter.innerHTML = count;
+//         timeGauge.style.width = count * gaugeUnit + "px";
+//         count++
+//     } else {
+//         count = 0;
+//         // change progress color to red
+//         answerIsWrong();
+//         if (runningQuestion < lastQuestion) {
+//             runningQuestion++;
+//             renderQuestion();
+//         } else {
+//             // end the quiz and show the score
+//             clearInterval(TIMER);
+//             scoreRender();
+//         }
+//     }
+// }
 
 // checkAnwer
 
