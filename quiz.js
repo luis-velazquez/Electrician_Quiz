@@ -11,6 +11,7 @@ const counter = document.getElementById("counter");
 const timeGauge = document.getElementById("timeGauge");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
+// const qNumber = document.getElementById("qNumber")
 
 // create our questions
 let questions = [
@@ -139,12 +140,19 @@ let count = 0;
 const questionTime = 20; //20s
 const gaugeWidth = 150; // 150px
 const gaugeUnit = gaugeWidth / questionTime;
-let TIMER;
+// let TIMER;
 let score = 0;
+
+//render question number 
+function renderNumber() {
+    let arrNumber = question.length
+    console.log(arrNumber)
+}
 
 // render a question
 function renderQuestion() {
     let q = questions[runningQuestion];
+
 
     question.innerHTML = "<p>" + q.question + "</p>";
     qImg.innerHTML = "<img src=" + q.imgSrc + ">";
