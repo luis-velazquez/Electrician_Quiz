@@ -68,7 +68,7 @@ let questions = [
         choiceA: "Strap within 1 feet of any box, panel, or termination point.",
         choiceB: "Strap within 3 feet of any box, panel, or termination point.",
         choiceC: "Stap Every 10 feet.",
-        choiceD: "Both A & C",
+        choiceD: "Both B & C",
         correct: "D"
     }, {
         question: "What are the maximum amount of 90 degree bends allowed in a conduit run?",
@@ -127,73 +127,186 @@ let questions = [
         choicedD: "None of the above",
         correct: "A"
     }, {
+        question: "In a 277/480 volt system, what color is the A phase?",
+        imgSrc: "",
+        choiceA: "Black", 
+        choiceB: "Red",
+        choiceC: "Blue",
+        choiceD: "Orange",
+        correct: ""
+    }, {
+        question: "In a 277/480 volt system, what color is the B phase?",
+        imgSrc: "",
+        choiceA: "Black", 
+        choiceB: "Red",
+        choiceC: "Blue",
+        choiceD: "Orange",
+        correct: ""
+    }, {
+        question: "In a 277/480 volt system, what color is the C phase?",
+        imgSrc: "",
+        choiceA: "Black", 
+        choiceB: "Red",
+        choiceC: "Blue",
+        choiceD: "Orange",
+        correct: ""
+    }, {
+        question: "In a 120/240 volt system, what color is the A phase?",
+        imgSrc: "",
+        choiceA: "Black", 
+        choiceB: "Red",
+        choiceC: "Blue",
+        choiceD: "Orange",
+        correct: ""
+    }, { 
+        question: "In a 120/240 volt system, what color is the B phase?",
+        imgSrc: "",
+        choiceA: "Black", 
+        choiceB: "Blue",
+        choiceC: "Orange",
+        choiceD: "",
+        correct: ""
+    }, {
+        question: "In a 120/240 volt system, what color is the C phase?",
+        imgSrc: "",
+        choiceA: "Black", 
+        choiceB: "Red",
+        choiceC: "Orange",
+        choiceD: "",
+        correct: ""
+    }, {
+        question: "",
+        imgSrc: "",
+        choiceA: "", 
+        choiceB: "",
+        choiceC: "",
+        choiceD: "",
+        correct: ""
+    }, {
+        question: "",
+        imgSrc: "",
+        choiceA: "", 
+        choiceB: "",
+        choiceC: "",
+        choiceD: "",
+        correct: ""
+    }, {
+        question: "",
+        imgSrc: "",
+        choiceA: "", 
+        choiceB: "",
+        choiceC: "",
+        choiceD: "",
+        correct: ""
+    }, {
         question: "",
         imgSrc: "",
         choiceA: "", 
         choiceB: "",
         choiceC: "",
         choiceD: ""
+    }, {
+        question: "",
+        imgSrc: "",
+        choiceA: "", 
+        choiceB: "",
+        choiceC: "",
+        choiceD: "",
+        correct: ""
+    }, {
+        question: "",
+        imgSrc: "",
+        choiceA: "", 
+        choiceB: "",
+        choiceC: "",
+        choiceD: "",
+        correct: ""
     }
     
 
 ];
 
 // create some variables
+
 const lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 let count = 0;
+const questionTime = 10; // 10s
 const gaugeWidth = 150; // 150px
+const gaugeUnit = gaugeWidth / questionTime;
+let TIMER;
 let score = 0;
 
-
 // render a question
-function renderQuestion() {
+function renderQuestion(){
     let q = questions[runningQuestion];
-
-    question.innerHTML = "<p>" + q.question + "</p>";
-    qImg.innerHTML = "<img src=" + q.imgSrc + ">";
+    
+    question.innerHTML = "<p>"+ q.question +"</p>";
+    qImg.innerHTML = "<img src="+ q.imgSrc +">";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
-    choiceD.innerHTML = q.choiceD;
 }
 
-start.addEventListener("click", startQuiz);
+start.addEventListener("click",startQuiz);
 
 // start quiz
-function startQuiz() {
+function startQuiz(){
     start.style.display = "none";
     renderQuestion();
     quiz.style.display = "block";
     renderProgress();
-    // renderCounter();
-    // TIMER = setInterval(renderCounter, 1000); // 1000ms = 1s
+    renderCounter();
+    TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 }
 
 // render progress
-function renderProgress() {
-    for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
-        progress.innerHTML += "<div class='prog' id=" + qIndex + "></div>";
+function renderProgress(){
+    for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
+        progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
 }
 
+// counter render
 
-function checkAnswer(answer) {
-    if (answer == questions[runningQuestion].correct) {
+function renderCounter(){
+    if(count <= questionTime){
+        counter.innerHTML = count;
+        timeGauge.style.width = count * gaugeUnit + "px";
+        count++
+    }else{
+        count = 0;
+        // change progress color to red
+        answerIsWrong();
+        if(runningQuestion < lastQuestion){
+            runningQuestion++;
+            renderQuestion();
+        }else{
+            // end the quiz and show the score
+            clearInterval(TIMER);
+            scoreRender();
+        }
+    }
+}
+
+// checkAnwer
+
+function checkAnswer(answer){
+    if( answer == questions[runningQuestion].correct){
         // answer is correct
         score++;
         // change progress color to green
         answerIsCorrect();
-    } else {
+    }else{
         // answer is wrong
         // change progress color to red
         answerIsWrong();
     }
     count = 0;
-    if (runningQuestion < lastQuestion) {
+    if(runningQuestion < lastQuestion){
         runningQuestion++;
         renderQuestion();
-    } else {
+    }else{
         // end the quiz and show the score
         clearInterval(TIMER);
         scoreRender();
@@ -201,29 +314,29 @@ function checkAnswer(answer) {
 }
 
 // answer is correct
-function answerIsCorrect() {
+function answerIsCorrect(){
     document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
 }
 
 // answer is Wrong
-function answerIsWrong() {
+function answerIsWrong(){
     document.getElementById(runningQuestion).style.backgroundColor = "#f00";
 }
 
 // score render
-function scoreRender() {
+function scoreRender(){
     scoreDiv.style.display = "block";
-
+    
     // calculate the amount of question percent answered by the user
-    const scorePerCent = Math.round(100 * score / questions.length);
-
+    const scorePerCent = Math.round(100 * score/questions.length);
+    
     // choose the image based on the scorePerCent
     let img = (scorePerCent >= 80) ? "img/5.png" :
-        (scorePerCent >= 60) ? "img/4.png" :
-            (scorePerCent >= 40) ? "img/3.png" :
-                (scorePerCent >= 20) ? "img/2.png" :
-                    "img/1.png";
-
-    scoreDiv.innerHTML = "<img src=" + img + ">";
-    scoreDiv.innerHTML += "<p>" + scorePerCent + "%</p>";
+              (scorePerCent >= 60) ? "img/4.png" :
+              (scorePerCent >= 40) ? "img/3.png" :
+              (scorePerCent >= 20) ? "img/2.png" :
+              "img/1.png";
+    
+    scoreDiv.innerHTML = "<img src="+ img +">";
+    scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
 }
