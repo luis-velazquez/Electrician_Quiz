@@ -433,7 +433,7 @@ let questions = [
         choiceA: "Four-Square Box Cover",
         choiceB: "Metal Plate",
         choiceC: "Electrical Plate",
-        choiceD: "Recetacle Box Cover",
+        choiceD: "Receptacle Box Cover",
         correct: "A"
     },{
         question: "What is the name of this material?",
@@ -448,17 +448,17 @@ let questions = [
         imgSrc: "material/gfci.png",
         choiceA: "Wall Outlet",
         choiceB: "Receptacle",
-        choiceC: "Ground Fault Circuit Interuptor (GFCI)",
-        choiceD: "Arc Fault Circuit Interuptor (AFCI)",
+        choiceC: "Ground Fault Circuit Interrupter (GFCI)",
+        choiceD: "Arc Fault Circuit Interrupter (AFCI)",
         correct: "D"
     },{
-        question: "In what location would you most commonly find a Grounding Bushing?",
+        question: "What is the name of this product?",
         imgSrc: "material/grounding-bushing.jpeg",
-        choiceA: "Hand Dryer",
-        choiceB: "Four Square Box",
-        choiceC: "Disconnect",
-        choiceD: "Joint Box",
-        correct: "C"
+        choiceA: "Grounding Bushing",
+        choiceB: "Panel Bushing",
+        choiceC: "Bonding Connector",
+        choiceD: "Disconnect Bushing",
+        correct: "A"
     },{
         question: "What is the name of this Tool?",
         imgSrc: "material/hammer-drill.png",
@@ -477,19 +477,19 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/holesaw-arbor.png",
-        choiceA: "Holesaw Arbor",
-        choiceB: "Holesaw Arboreteum",
-        choiceC: "Holsaw Connector",
-        choiceD: "Holesaw Holder",
+        imgSrc: "material/hoelsaw-arbor.png",
+        choiceA: "Hole Saw Arbor",
+        choiceB: "Hole Saw Arboretum",
+        choiceC: "Hole Saw Connector",
+        choiceD: "Hole Saw Holder",
         correct: "A"
     },{
-        question: "Which of the following is not an acceptable use of Jet-line?",
+        question: "What is the common name of this material?",
         imgSrc: "material/jet-line.png",
-        choiceA: "Tieing off EMT Conduit",
-        choiceB: "Tieing off Temporary Power",
-        choiceC: "Pulling Wire",
-        choiceD: "Pulling Mill Tape",
+        choiceA: "Jet-Line",
+        choiceB: "Helicopter-Line",
+        choiceC: "Pulling Electrical-Line",
+        choiceD: "Mill Tape",
         correct: "A"
     },{
         question: "What is the name of this material?",
@@ -522,7 +522,7 @@ let questions = [
         choiceB: "Dykes",
         choiceC: "Needle Nose",
         choiceD: "Linesman's Pliers",
-        correct: ""
+        correct: "C"
     },{
         question: "What is the name of this material?",
         imgSrc: "material/nut-driver.png",
@@ -550,7 +550,7 @@ let questions = [
     },{
         question: "What is the name of this material?",
         imgSrc: "material/power-pack.png",
-        choiceA: "Batteru Pack",
+        choiceA: "Battery Pack",
         choiceB: "Wall Pack",
         choiceC: "Energy Pack",
         choiceD: "Power Pack",
@@ -608,12 +608,12 @@ let questions = [
         imgSrc: "material/reducing-bushing.jpeg",
         choiceA: "Reducing Bushing",
         choiceB: "EMT Connector",
-        choiceC: "Rigid Connectore",
+        choiceC: "Rigid Connectors",
         choiceD: "Rigid Bushing",
         correct: "A"
     },{
         question: "What is the SLANG name of this material?",
-        imgSrc: "material/reducint-washer.jpeg",
+        imgSrc: "material/reducing-washer.jpeg",
         choiceA: "One hole Strap",
         choiceB: "Mexican Pesos",
         choiceC: "Reducing Money",
@@ -632,7 +632,7 @@ let questions = [
         imgSrc: "material/self-tapper.png",
         choiceA: "Metal Screw",
         choiceB: "Self Tapper",
-        choiceC: "Sheat Rock Screw",
+        choiceC: "Sheet Rock Screw",
         choiceD: "Metal Tapper",
         correct: "B"
     },{
@@ -656,14 +656,14 @@ let questions = [
         imgSrc: "material/side-mount-flange-clip.png",
         choiceA: "Side Mount Connector",
         choiceB: "Side Mount Flange Clip ",
-        choiceC: "Straig Flange Clip",
+        choiceC: "Straight Flange Clip",
         choiceD: "90 Flange Clip",
         correct: "B"
     },{
         question: "What is the name of this material?",
         imgSrc: "material/side-mount-push-in-flange-clip.png",
         choiceA: "Side Mount Push In Flange Clip",
-        choiceB: "Side Mount 90 Flang Clip",
+        choiceB: "Side Mount 90 Flange Clip",
         choiceC: "Side Mount Straight Clip",
         choiceD: "EMT Clip",
         correct: "A"
@@ -736,7 +736,7 @@ let questions = [
         imgSrc: "material/turn-lock-plug.png",
         choiceA: "Turn Lock Plug",
         choiceB: "Turn Plug",
-        choiceC: "Circular Plut",
+        choiceC: "Circular Plug",
         choiceD: "Circular Outlet",
         correct: "A"
     },{
@@ -774,11 +774,11 @@ let questions = [
     },{
         question: "What is the name of this material?",
         imgSrc: "material/weather-proof-box.png",
-        choiceA: "",
-        choiceB: "",
-        choiceC: "",
-        choiceD: "",
-        correct: ""
+        choiceA: "PVC Electrical Box",
+        choiceB: "Weather Proof Box",
+        choiceC: "Double Device Box",
+        choiceD: "Single Device Box",
+        correct: "B"
     },{
         question: "What is the name of this material?",
         imgSrc: "material/weather-resistant-gfci.png",
