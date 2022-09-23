@@ -1,3 +1,6 @@
+var express = require('express');
+var app = express();
+
 // select all elements
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
@@ -915,3 +918,6 @@ function scoreRender(){
     scoreDiv.innerHTML = "<img src="+ img +">";
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
 }
+
+
+app.listen(process.env.PORT || 3000);

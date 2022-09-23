@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/luis-velazquez/Electrician_Quiz/issues"
   },
-  "homepage": "https://github.com/luis-velazquez/Electrician_Quiz#readme"
+  "homepage": "https://github.com/luis-velazquez/Electrician_Quiz#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
