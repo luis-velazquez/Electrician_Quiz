@@ -1,6 +1,3 @@
-var express = require('express');
-var app = express();
-
 // select all elements
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
@@ -16,223 +13,11 @@ const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
 
 // create our questions
-// let questions = [
-//     {
-//         question: "How is conduit classified?",
-//         imgSrc: "img/html.png",
-//         choiceA: "Wall Thickness",
-//         choiceB: "Mechanical Stiffness",
-//         choiceC: "Material Used",
-//         choiceD: "All Of The Above",
-//         correct: "D"
-//     }, {
-//         question: "How many wires are inside of a 12-2 MC",
-//         imgSrc: "img/css.png",
-//         choiceA: "2",
-//         choiceB: "3",
-//         choiceC: "4",
-//         choiceD: "None of the above.",
-//         correct: "B"
-//     }, {
-//         question: "How many wires are inside of a 12-3 MC",
-//         imgSrc: "img/js.png",
-//         choiceA: "2",
-//         choiceB: "3",
-//         choiceC: "4",
-//         choiceD: "None of the above.",
-//         correct: "C"
-//     }, {
-//         question: "What does MC mean?",
-//         imgSrc: "",
-//         choiceA: "Metal Clad",
-//         choiceB: "Multi-Contact",
-//         choiceC: "Master of Ceremonies",
-//         choiceD: "None of the above.",
-//         correct: "A"
-//     }, {
-//         question: "What are the 3 phase colors in a 120/240 volt pannel?",
-//         imgSrc: "",
-//         choiceA: "Brown, Orange, Yellow",
-//         choiceB: "Black, Red, Blue",
-//         choiceC: "Black, Red, White",
-//         choiceD: "Red, White, blue.",
-//         correct: "B"
-//     }, {
-//         question: "What are the 3 phase colors in a 277/480 volt pannel?",
-//         imgSrc: "",
-//         choiceA: "Brown, Orange, Yellow",
-//         choiceB: "Black, Red, Blue",
-//         choiceC: "Black, Red, White",
-//         choiceD: "Red, White, blue.",
-//         correct: "A"
-//     }, {
-//         question: "According to section 358.30 of the NEC code book, What are the minimum requirements for Securing & supporting EMT?",
-//         imgSrc: "",
-//         choiceA: "Strap within 1 feet of any box, panel, or termination point.",
-//         choiceB: "Strap within 3 feet of any box, panel, or termination point.",
-//         choiceC: "Stap Every 10 feet.",
-//         choiceD: "Both B & C",
-//         correct: "D"
-//     }, {
-//         question: "What are the maximum amount of 90 degree bends allowed in a conduit run?",
-//         imgSrc: "",
-//         choiceA: "3",
-//         choiceB: "4",
-//         choiceC: "5",
-//         choiceD: "6",
-//         correct: "B"
-//     }, {
-//         question: "When reaming the end of a conduit, what tool does the code book say that you should use?",
-//         imgSrc: "",
-//         choiceA: "Conduit Reamer",
-//         choiceB: "Channel Locks",
-//         choiceC: "Needle Nose",
-//         choiceD: "The code book does not say you have to ream with any specific tool.",
-//         correct: "D"
-//     }, {
-//         question: "According to NEW Article 330.30, MC cable must be supported and secured at intervals of how many feet",
-//         imgSrc: "",
-//         choiceA: "10 feet or less & 3 feet from every termination",
-//         choiceB: "6 feet of less & 12 inches from every termination",
-//         choiceC: "5 feet or less & 6 inches from every termination",
-//         choiceD: "4 feet or less & 1 foot from every termination",
-//         correct: "B"
-//     }, {
-//         question: "What material do you use strap MC cable to ceiling wire?",
-//         imgSrc: "",
-//         choiceA: "Conduit Hanger",
-//         choiceB: "Electrical Tape",
-//         choiceC: "Bat Wing",
-//         choicedD: "One-Hole Strap",
-//         correct: "C"
-//     }, {
-//         question: "What Mansory anchor is primaly used to attach items to concrete, brick, or block?",
-//         imgSrc: "",
-//         choiceA: "Self-Tapper",
-//         choiceB: "Tapcon",
-//         choiceC: "Toggle Bolt",
-//         choicedD: "All of the above",
-//         correct: "B"
-//     }, {
-//         question: "What is the primary function of a beam clamp?",
-//         imgSrc: "",
-//         choiceA: "To securly fasten Threaded Rod on to a ceiling beam",
-//         choiceB: "",
-//         choiceC: "",
-//         choicedD: "All of the above",
-//         correct: "B"
-//     }, {
-//         question: "In a commercial setting what wires will you find inside of an Emergency light fixure that allows dimming",
-//         imgSrc: "",
-//         choiceA: "Switch Leg, Emergency, Neutral, Ground, Dimming Positive, Dimming Neutral",
-//         choiceB: "",
-//         choiceC: "",
-//         choicedD: "None of the above",
-//         correct: "A"
-//     }, {
-//         question: "In a 277/480 volt system, what color is the A phase?",
-//         imgSrc: "",
-//         choiceA: "Black", 
-//         choiceB: "Red",
-//         choiceC: "Blue",
-//         choiceD: "Orange",
-//         correct: ""
-//     }, {
-//         question: "In a 277/480 volt system, what color is the B phase?",
-//         imgSrc: "",
-//         choiceA: "Black", 
-//         choiceB: "Red",
-//         choiceC: "Blue",
-//         choiceD: "Orange",
-//         correct: ""
-//     }, {
-//         question: "In a 277/480 volt system, what color is the C phase?",
-//         imgSrc: "",
-//         choiceA: "Black", 
-//         choiceB: "Red",
-//         choiceC: "Blue",
-//         choiceD: "Orange",
-//         correct: ""
-//     }, {
-//         question: "In a 120/240 volt system, what color is the A phase?",
-//         imgSrc: "",
-//         choiceA: "Black", 
-//         choiceB: "Red",
-//         choiceC: "Blue",
-//         choiceD: "Orange",
-//         correct: ""
-//     }, { 
-//         question: "In a 120/240 volt system, what color is the B phase?",
-//         imgSrc: "",
-//         choiceA: "Black", 
-//         choiceB: "Blue",
-//         choiceC: "Orange",
-//         choiceD: "",
-//         correct: ""
-//     }, {
-//         question: "In a 120/240 volt system, what color is the C phase?",
-//         imgSrc: "",
-//         choiceA: "Black", 
-//         choiceB: "Red",
-//         choiceC: "Orange",
-//         choiceD: "",
-//         correct: ""
-//     }, {
-//         question: "",
-//         imgSrc: "",
-//         choiceA: "", 
-//         choiceB: "",
-//         choiceC: "",
-//         choiceD: "",
-//         correct: ""
-//     }, {
-//         question: "",
-//         imgSrc: "",
-//         choiceA: "", 
-//         choiceB: "",
-//         choiceC: "",
-//         choiceD: "",
-//         correct: ""
-//     }, {
-//         question: "",
-//         imgSrc: "",
-//         choiceA: "", 
-//         choiceB: "",
-//         choiceC: "",
-//         choiceD: "",
-//         correct: ""
-//     }, {
-//         question: "",
-//         imgSrc: "",
-//         choiceA: "", 
-//         choiceB: "",
-//         choiceC: "",
-//         choiceD: ""
-//     }, {
-//         question: "",
-//         imgSrc: "",
-//         choiceA: "", 
-//         choiceB: "",
-//         choiceC: "",
-//         choiceD: "",
-//         correct: ""
-//     }, {
-//         question: "",
-//         imgSrc: "",
-//         choiceA: "", 
-//         choiceB: "",
-//         choiceC: "",
-//         choiceD: "",
-//         correct: ""
-//     }
-    
-
-// ];
 
 let questions = [
     {
         question: "What is the name of this material?",
-        imgSrc: "material/12-mc.jpeg", 
+        imgSrc: "./material/12-mc.jpeg", 
         choiceA: "12-3 MC Cable",
         choiceB: "12-2 MC Cable",
         choiceC: "12-3 Romex",
@@ -240,7 +25,7 @@ let questions = [
         correct: "B",
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/90-degree-liquid-tight-connector.png",
+        imgSrc: "./material/90-degree-liquid-tight-connector.png",
         choiceA: "90 Degree EMT Connector",
         choiceB: "90 Degree Romex Connector",
         choiceC: "90 Degree MC Connector",
@@ -248,7 +33,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/90-degree-mc-connector.jpeg",
+        imgSrc: "./material/90-degree-mc-connector.jpeg",
         choiceA: "90 Degree Liquid Tight Connector",
         choiceB: "90 Degree Romex Connector",
         choiceC: "90 Degree MC Connector",
@@ -256,7 +41,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the REAL name of this material?",
-        imgSrc: "material/all-thread.jpeg",
+        imgSrc: "./material/all-thread.jpeg",
         choiceA: "Screw Thread",
         choiceB: "All Thread",
         choiceC: "Threaded Rod",
@@ -264,7 +49,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/bat-wing.png",
+        imgSrc: "./material/bat-wing.png",
         choiceA: "Bird Wing",
         choiceB: "M Bracket",
         choiceC: "Ceiling Strap",
@@ -272,7 +57,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/beam-clamp.png",
+        imgSrc: "./material/beam-clamp.png",
         choiceA: "Beam Clamp",
         choiceB: "Shark Teeth",
         choiceC: "Box Holder",
@@ -280,7 +65,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/bell-box-cover.png",
+        imgSrc: "./material/bell-box-cover.png",
         choiceA: "J-Box",
         choiceB: "Bell Box Cover",
         choiceC: "Shallow Box Cover",
@@ -288,7 +73,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/box-bracket.png",
+        imgSrc: "./material/box-bracket.png",
         choiceA: "Straight Brackets",
         choiceB: "Box Hanger",
         choiceC: "Box Bracket",
@@ -296,7 +81,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/channel-lock.png",
+        imgSrc: "./material/channel-lock.png",
         choiceA: "Needle Nose",
         choiceB: "Dykes",
         choiceC: "Channel Lock",
@@ -304,7 +89,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/compression-emt-connector.png",
+        imgSrc: "./material/compression-emt-connector.png",
         choiceA: "Romex Connector",
         choiceB: "MC Connector",
         choiceC: "PVC Connector",
@@ -312,7 +97,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/compression-emt-coupling.png",
+        imgSrc: "./material/compression-emt-coupling.png",
         choiceA: "Romex Coupling",
         choiceB: "MC Coupling",
         choiceC: "PVC Coupling",
@@ -320,7 +105,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/conduit-hanger.png",
+        imgSrc: "./material/conduit-hanger.png",
         choiceA: "EMT Hanger",
         choiceB: "Romex Hanger",
         choiceC: "Romex Strap",
@@ -328,7 +113,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/cut-in-box.png",
+        imgSrc: "./material/cut-in-box.png",
         choiceA: "Receptacle Box",
         choiceB: "Cut In Box",
         choiceC: "Four Square",
@@ -336,7 +121,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the SLANG name of this tool",
-        imgSrc: "material/diagonal-cutting-pliers.png",
+        imgSrc: "./material/diagonal-cutting-pliers.png",
         choiceA: "Channel Locks",
         choiceB: "Lineman's",
         choiceC: "Dykes",
@@ -344,7 +129,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/drop-in-anchor.png",
+        imgSrc: "./material/drop-in-anchor.png",
         choiceA: "Threaded Rod Coupling",
         choiceB: "Bullet",
         choiceC: "Threaded Bullet",
@@ -352,7 +137,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/duplex-connector.jpeg",
+        imgSrc: "./material/duplex-connector.jpeg",
         choiceA: "EMT Duplex Connector",
         choiceB: "PVC Connector",
         choiceC: "Rigid Connector",
@@ -360,7 +145,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/easy-anchor.png",
+        imgSrc: "./material/easy-anchor.png",
         choiceA: "Easy Anchor",
         choiceB: "Screw In",
         choiceC: "Quick Set",
@@ -368,7 +153,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/electrical-box-bracket.png",
+        imgSrc: "./material/electrical-box-bracket.png",
         choiceA: "Four Square Hanger",
         choiceB: "Electrical Box Bracket",
         choiceC: "All Purpose Bracket",
@@ -376,7 +161,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/emt.jpeg",
+        imgSrc: "./material/emt.jpeg",
         choiceA: "MC",
         choiceB: "PVC",
         choiceC: "Romex",
@@ -384,7 +169,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/extension-ring.png",
+        imgSrc: "./material/extension-ring.png",
         choiceA: "Four Square",
         choiceB: "Four Eleven",
         choiceC: "Extension Ring",
@@ -392,7 +177,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/f-bracket.png",
+        imgSrc: "./material/f-bracket.png",
         choiceA: "Box Bracket",
         choiceB: "Easy Anchor",
         choiceC: "Cut Out Bracket",
@@ -400,7 +185,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/fish-tape.png",
+        imgSrc: "./material/fish-tape.png",
         choiceA: "Fish Tape",
         choiceB: "Metal Tape",
         choiceC: "Electrical Tape",
@@ -408,7 +193,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/flange-clip.png",
+        imgSrc: "./material/flange-clip.png",
         choiceA: "Flange Clip",
         choiceB: "Hanger Clip",
         choiceC: "Clip For Pipe",
@@ -416,7 +201,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/flex-connector.png",
+        imgSrc: "./material/flex-connector.png",
         choiceA: "Squeeze Connector",
         choiceB: "Rigid Connector",
         choiceC: "MC Connector",
@@ -424,7 +209,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/flex.jpeg",
+        imgSrc: "./material/flex.jpeg",
         choiceA: "Twist",
         choiceB: "Spiral",
         choiceC: "Swirl",
@@ -432,7 +217,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/four-square-box-cover.png",
+        imgSrc: "./material/four-square-box-cover.png",
         choiceA: "Four-Square Box Cover",
         choiceB: "Metal Plate",
         choiceC: "Electrical Plate",
@@ -440,7 +225,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/four-square-box.png",
+        imgSrc: "./material/four-square-box.png",
         choiceA: "Electrical Box",
         choiceB: "EMT Box",
         choiceC: "Four Square",
@@ -448,7 +233,7 @@ let questions = [
         correct: "C"
     },{
         question: "Which of the following is NOT a correct name of this product?",
-        imgSrc: "material/gfci.png",
+        imgSrc: "./material/gfci.png",
         choiceA: "Wall Outlet",
         choiceB: "Receptacle",
         choiceC: "Ground Fault Circuit Interrupter (GFCI)",
@@ -456,7 +241,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this product?",
-        imgSrc: "material/grounding-bushing.jpeg",
+        imgSrc: "./material/grounding-bushing.jpeg",
         choiceA: "Grounding Bushing",
         choiceB: "Panel Bushing",
         choiceC: "Bonding Connector",
@@ -464,7 +249,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this Tool?",
-        imgSrc: "material/hammer-drill.png",
+        imgSrc: "./material/hammer-drill.png",
         choiceA: "Hammer Drill",
         choiceB: "Chisel Drill",
         choiceC: "Impact Drill",
@@ -472,7 +257,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/hex-rod-coupling.png",
+        imgSrc: "./material/hex-rod-coupling.png",
         choiceA: "Romex Coupling",
         choiceB: "RMC Coupling",
         choiceC: "EMT Coupling",
@@ -480,7 +265,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/hoelsaw-arbor.png",
+        imgSrc: "./material/hoelsaw-arbor.png",
         choiceA: "Hole Saw Arbor",
         choiceB: "Hole Saw Arboretum",
         choiceC: "Hole Saw Connector",
@@ -488,7 +273,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the common name of this material?",
-        imgSrc: "material/jet-line.png",
+        imgSrc: "./material/jet-line.png",
         choiceA: "Jet-Line",
         choiceB: "Helicopter-Line",
         choiceC: "Pulling Electrical-Line",
@@ -496,7 +281,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/linemans-pliers.png",
+        imgSrc: "./material/linemans-pliers.png",
         choiceA: "Needle Nose Pliers",
         choiceB: "Diagonal Cutter Pliers",
         choiceC: "Hammer Pliers",
@@ -504,7 +289,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/liquid-tight-connector.png",
+        imgSrc: "./material/liquid-tight-connector.png",
         choiceA: "Grounding Bushing",
         choiceB: "Liquid Tight Connector",
         choiceC: "EMT Connector",
@@ -512,7 +297,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/mud-ring.png",
+        imgSrc: "./material/mud-ring.png",
         choiceA: "Receptacle Ring",
         choiceB: "Mud Ring",
         choiceC: "Receptacle Box Cover",
@@ -520,7 +305,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this tool?",
-        imgSrc: "material/needle-nose-side-cutters.png",
+        imgSrc: "./material/needle-nose-side-cutters.png",
         choiceA: "Long Pliers",
         choiceB: "Dykes",
         choiceC: "Needle Nose",
@@ -528,7 +313,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/nut-driver.png",
+        imgSrc: "./material/nut-driver.png",
         choiceA: "Nut Driver",
         choiceB: "Washer Driver",
         choiceC: "Screw Driver",
@@ -536,7 +321,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/one-hole-strap.jpeg",
+        imgSrc: "./material/one-hole-strap.jpeg",
         choiceA: "Wall Strap",
         choiceB: "Metal Strap",
         choiceC: "Self Strap",
@@ -544,7 +329,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/pigtail.jpeg",
+        imgSrc: "./material/pigtail.jpeg",
         choiceA: "Bonding Wire",
         choiceB: "Stinger",
         choiceC: "Pigtail",
@@ -552,7 +337,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/power-pack.png",
+        imgSrc: "./material/power-pack.png",
         choiceA: "Battery Pack",
         choiceB: "Wall Pack",
         choiceC: "Energy Pack",
@@ -560,7 +345,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/push-in-flange-clip.png",
+        imgSrc: "./material/push-in-flange-clip.png",
         choiceA: "EMT Connector",
         choiceB: "EMT Holder",
         choiceC: "Push In Flange Clip",
@@ -568,7 +353,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/push-penny.jpeg",
+        imgSrc: "./material/push-penny.jpeg",
         choiceA: "Push Penny",
         choiceB: "Chinese Money",
         choiceC: "Push Quarter",
@@ -576,7 +361,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/pvc-conduit.jpeg",
+        imgSrc: "./material/pvc-conduit.jpeg",
         choiceA: "EMT",
         choiceB: "PVC",
         choiceC: "MC",
@@ -584,7 +369,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/pvc-coupling.jpeg",
+        imgSrc: "./material/pvc-coupling.jpeg",
         choiceA: "EMT Coupling",
         choiceB: "PVC Coupling",
         choiceC: "MC Coupling",
@@ -592,7 +377,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/pvc-elbow-90.jpeg",
+        imgSrc: "./material/pvc-elbow-90.jpeg",
         choiceA: "Change Direction",
         choiceB: "Turn Over",
         choiceC: "Offset",
@@ -600,7 +385,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the SLANG name of this material?",
-        imgSrc: "material/red-devil.png",
+        imgSrc: "./material/red-devil.png",
         choiceA: "Red Tip",
         choiceB: "Red Plastic",
         choiceC: "Red Devil",
@@ -608,7 +393,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/reducing-bushing.jpeg",
+        imgSrc: "./material/reducing-bushing.jpeg",
         choiceA: "Reducing Bushing",
         choiceB: "EMT Connector",
         choiceC: "Rigid Connectors",
@@ -616,7 +401,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the SLANG name of this material?",
-        imgSrc: "material/reducing-washer.jpeg",
+        imgSrc: "./material/reducing-washer.jpeg",
         choiceA: "One hole Strap",
         choiceB: "Mexican Pesos",
         choiceC: "Reducing Money",
@@ -624,7 +409,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/ridid-coupling.jpeg",
+        imgSrc: "./material/ridid-coupling.jpeg",
         choiceA: "EMT Coupling",
         choiceB: "Flex Coupling",
         choiceC: "Rigid Coupling",
@@ -632,7 +417,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/self-tapper.png",
+        imgSrc: "./material/self-tapper.png",
         choiceA: "Metal Screw",
         choiceB: "Self Tapper",
         choiceC: "Sheet Rock Screw",
@@ -640,7 +425,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/set-screw-coupling.png",
+        imgSrc: "./material/set-screw-coupling.png",
         choiceA: "Set Screw Coupling",
         choiceB: "Set Screw Connector",
         choiceC: "Set Screw Strap",
@@ -648,7 +433,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/set-screw-emt-connector.png",
+        imgSrc: "./material/set-screw-emt-connector.png",
         choiceA: "EMT Connector",
         choiceB: "MC Connector",
         choiceC: "Rigid Connector",
@@ -656,7 +441,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/side-mount-flange-clip.png",
+        imgSrc: "./material/side-mount-flange-clip.png",
         choiceA: "Side Mount Connector",
         choiceB: "Side Mount Flange Clip ",
         choiceC: "Straight Flange Clip",
@@ -664,7 +449,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/side-mount-push-in-flange-clip.png",
+        imgSrc: "./material/side-mount-push-in-flange-clip.png",
         choiceA: "Side Mount Push In Flange Clip",
         choiceB: "Side Mount 90 Flange Clip",
         choiceC: "Side Mount Straight Clip",
@@ -672,7 +457,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/single-gang-industrial-box-cover.png",
+        imgSrc: "./material/single-gang-industrial-box-cover.png",
         choiceA: "Single Gang Box Cover",
         choiceB: "Commercial cover",
         choiceC: "Device Box Cover",
@@ -680,7 +465,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/single-gang-low-voltage-mounting-plate.png",
+        imgSrc: "./material/single-gang-low-voltage-mounting-plate.png",
         choiceA: "Receptacle Mounting Plate",
         choiceB: "Metal Punting Plate",
         choiceC: "Single Gang Low Voltage Mounting Plate",
@@ -688,7 +473,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/snap-in-connector.png",
+        imgSrc: "./material/snap-in-connector.png",
         choiceA: "Snap In Connector",
         choiceB: "EMT Connector",
         choiceC: "Easy-Connect",
@@ -696,7 +481,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/squeeze-connector.jpeg",
+        imgSrc: "./material/squeeze-connector.jpeg",
         choiceA: "Screw Connector",
         choiceB: "Squeeze Connector",
         choiceC: "Big Flex Connector",
@@ -704,7 +489,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/step-bit.png",
+        imgSrc: "./material/step-bit.png",
         choiceA: "Knock Out",
         choiceB: "Hole Expander",
         choiceC: "Piggy Bit",
@@ -712,7 +497,7 @@ let questions = [
         correct: ""
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/strut-strap.jpeg",
+        imgSrc: "./material/strut-strap.jpeg",
         choiceA: "Strut EMT Hanger",
         choiceB: "Strut Holder",
         choiceC: "Strut Connector",
@@ -720,7 +505,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/t-bar-box-hanger.png",
+        imgSrc: "./material/t-bar-box-hanger.png",
         choiceA: "T-Bar Box Hanger",
         choiceB: "Bar Hanger",
         choiceC: "Four Square Holder",
@@ -728,7 +513,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/tapcon.png",
+        imgSrc: "./material/tapcon.png",
         choiceA: "Self Tapper",
         choiceB: "Blue Bolt",
         choiceC: "Tapcon",
@@ -736,7 +521,7 @@ let questions = [
         correct: "C"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/turn-lock-plug.png",
+        imgSrc: "./material/turn-lock-plug.png",
         choiceA: "Turn Lock Plug",
         choiceB: "Turn Plug",
         choiceC: "Circular Plug",
@@ -744,7 +529,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/two-device-mud-ring.png",
+        imgSrc: "./material/two-device-mud-ring.png",
         choiceA: "Double Gang Receptacle Ring",
         choiceB: "Two Device Mud Ring",
         choiceC: "Single Device Mud Ring",
@@ -752,7 +537,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/unistrut.jpeg",
+        imgSrc: "./material/unistrut.jpeg",
         choiceA: "Unistrut",
         choiceB: "Rigid Metal",
         choiceC: "Metal Strut",
@@ -760,7 +545,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/universal-beam-clamp.png",
+        imgSrc: "./material/universal-beam-clamp.png",
         choiceA: "Strut Clamp",
         choiceB: "Tin Metal Clamp",
         choiceC: "Box Clamp",
@@ -768,7 +553,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/wall-pack.png",
+        imgSrc: "./material/wall-pack.png",
         choiceA: "Wall Pack",
         choiceB: "Wall Light",
         choiceC: "Power Pack",
@@ -776,7 +561,7 @@ let questions = [
         correct: "A"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/weather-proof-box.png",
+        imgSrc: "./material/weather-proof-box.png",
         choiceA: "PVC Electrical Box",
         choiceB: "Weather Proof Box",
         choiceC: "Double Device Box",
@@ -784,7 +569,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/weather-resistant-gfci.png",
+        imgSrc: "./material/weather-resistant-gfci.png",
         choiceA: "Water Resistant GFCI",
         choiceB: "Regular GFCI",
         choiceC: "Tamper Resistant GFCI",
@@ -792,7 +577,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "material/wire-strippers.png",
+        imgSrc: "./material/wire-strippers.png",
         choiceA: "Cutters",
         choiceB: "Stripper",
         choiceC: "Stripper Wire",
@@ -919,5 +704,3 @@ function scoreRender(){
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
 }
 
-
-app.listen(process.env.PORT || 3000);

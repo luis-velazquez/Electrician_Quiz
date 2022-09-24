@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="../app.js"></script>
 </head>
 <body>
     <div id="container">
@@ -18,10 +19,15 @@
                 <div class="choice" id="C" onclick="checkAnswer('C')"></div>
                 <div class="choice" id="D" onclick="checkAnswer('D')"></div>
             </div>
+            <div id="timer">
+                <div id="counter"></div>
+                <div id="btimeGauge"></div>
+                <div id="timeGauge"></div>
+            </div>
             <div id="progress"></div>
         </div>
         <div id="scoreContainer" style="display: none"></div>
     </div>
-    <script src="quiz.js"></script>
+    <script src="./js/quiz.js"></script>
 </body>
 </html>
