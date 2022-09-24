@@ -409,7 +409,7 @@ let questions = [
         correct: "D"
     },{
         question: "What is the name of this material?",
-        imgSrc: "./material/ridid-coupling.jpeg",
+        imgSrc: "./material/rigid-coupling.jpeg",
         choiceA: "EMT Coupling",
         choiceB: "Flex Coupling",
         choiceC: "Rigid Coupling",
@@ -494,7 +494,7 @@ let questions = [
         choiceB: "Hole Expander",
         choiceC: "Piggy Bit",
         choiceD: "Step Bit",
-        correct: ""
+        correct: "D"
     },{
         question: "What is the name of this material?",
         imgSrc: "./material/strut-strap.jpeg",
@@ -569,7 +569,7 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "./material/weather-resistant-gfci.png",
+        imgSrc: "./material/weather-resitant-gfci.png",
         choiceA: "Water Resistant GFCI",
         choiceB: "Regular GFCI",
         choiceC: "Tamper Resistant GFCI",
