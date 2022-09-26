@@ -205,7 +205,7 @@ body {
 
     }
 
-    @media (min-width: 450px) {
+    @media (max-width: 450px) {
         body {
             font-size: 40px;
             font-family: Arial, Helvetica, sans-serif;
