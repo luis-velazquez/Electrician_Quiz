@@ -1,18 +1,19 @@
-body{
+body {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#container{
-    margin : 20px auto;
+#container {
+    margin: 20px auto;
     background-color: white;
     height: 600px;
-    width : 700px;
+    width: 700px;
     border-radius: 5px;
     box-shadow: 0px 5px 15px 0px;
     position: relative;
 }
-#start{
+
+#start {
     font-size: 3em;
     font-weight: bolder;
     word-break: break-all;
@@ -31,130 +32,207 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#start:hover{
+
+#start:hover {
     border: 3px solid lightseagreen;
-    color : lightseagreen;
+    color: lightseagreen;
 }
 
-#qImg{
-    width : 200px;
-    height : 200px;
+#qImg {
+    width: 200px;
+    height: 200px;
     position: absolute;
-    left : 0px;
-    top : 0px;
+    left: 0px;
+    top: 0px;
 }
-#qImg img{
-    width : 200px;
-    height : 200px;
+
+#qImg img {
+    width: 200px;
+    height: 200px;
     border-top-left-radius: 5px;
 }
 
-#question{
-    width:500px;
-    height : 125px;
+#question {
+    width: 500px;
+    height: 125px;
     position: absolute;
-    right:0;
-    top:0;
+    right: 0;
+    top: 0;
 }
-#question p{
-    margin : 0;
-    padding : 15px;
+
+#question p {
+    margin: 0;
+    padding: 15px;
     font-size: 1.25em;
 }
 
-#choices{
-    width : 480px;
+#choices {
+    width: 480px;
     position: absolute;
-    right : 0;
-    top : 125px;
-    padding : 10px
+    right: 0;
+    top: 125px;
+    padding: 10px
 }
-.choice{
+
+.choice {
     /* display: inline-block;
     width : 135px;
     text-align: center; */
-    border : 1px solid grey;
+    border: 1px solid grey;
     border-radius: 5px;
     cursor: pointer;
-    padding : 10px;
+    padding: 10px;
     margin: 10px;
 }
-.choice:hover{
+
+.choice:hover {
     border: 2px solid lightseagreen;
-    color : lightseagreen;
+    color: lightseagreen;
     font-weight: bold;
 }
 
-#timer{
+#timer {
     position: absolute;
-    height : 100px;
-    width : 200px;
-    bottom : 0px;
+    height: 100px;
+    width: 200px;
+    bottom: 0px;
     text-align: center;
 }
-#counter{
+
+#counter {
     font-size: 2em;
 }
-#btimeGauge{
-    width : 150px;
-    height : 10px;
+
+#btimeGauge {
+    width: 150px;
+    height: 10px;
     border-radius: 10px;
     background-color: lightgray;
-    margin-left : 25px;
+    margin-left: 25px;
 }
-#timeGauge{
-    height : 10px;
+
+#timeGauge {
+    height: 10px;
     border-radius: 10px;
     background-color: mediumseagreen;
-    margin-top : -10px;
-    margin-left : 25px;
+    margin-top: -10px;
+    margin-left: 25px;
 }
-#progress{
+
+#progress {
     width: 500px;
     position: absolute;
     bottom: 0px;
     right: -35px;
     padding: 30px;
     /* text-align: right; */
-    
+
 }
-.prog{
-    width : 25px;
-    height : 25px;
+
+.prog {
+    width: 25px;
+    height: 25px;
     border: 1px solid #000;
     display: inline-block;
     border-radius: 10%;
-    margin-left : 5px;
-    margin-right : 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
-#scoreContainer{
-    margin : 20px auto;
+
+#scoreContainer {
+    margin: 20px auto;
     background-color: white;
     opacity: 0.8;
     height: 300px;
-    width : 700px;
+    width: 700px;
     border-radius: 5px;
     box-shadow: 0px 5px 15px 0px;
     position: relative;
     display: none;
 }
-#scoreContainer img{
+
+#scoreContainer img {
     position: absolute;
-    top:100px;
-    left:325px;
+    top: 100px;
+    left: 325px;
 }
-#scoreContainer p{
+
+#scoreContainer p {
     position: absolute;
     display: block;
-    width : 59px;
-    height :59px;
-    top:130px;
-    left:325px;
+    width: 59px;
+    height: 59px;
+    top: 130px;
+    left: 325px;
     font-size: 1.5em;
     font-weight: bold;
     text-align: center;
 }
 
-@media (max-width: 325px) {
-    
-}
+@media (min-width: 450px) {
+    body {
+        font-size: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #container {
+        margin: 400px auto;
+        background-color: white;
+        height: 1300px;
+        width: 900px;
+        border-radius: 5px;
+        box-shadow: 0px 5px 15px 0px;
+        position: relative;
+    }
+
+    #qImg img {
+        width: 200px;
+        height: 200px;
+        border-top-left-radius: 5px;
+    }
+
+    #choices {
+        width: 480px;
+        position: absolute;
+        right: 0;
+        top: 225px;
+        padding: 10px
+    }
+
+    #start {
+        width: 700px;
+        cursor: none;
+
+    }
+
+    @media (min-width: 450px) {
+        body {
+            font-size: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #container {
+            margin: 400px auto;
+            background-color: white;
+            height: 1300px;
+            width: 900px;
+            border-radius: 5px;
+            box-shadow: 0px 5px 15px 0px;
+            position: relative;
+        }
+
+        #choices {
+            width: 480px;
+            position: absolute;
+            right: 0;
+            top: 225px;
+            padding: 10px
+        }
+
+        #start {
+            width: 700px;
+            cursor: none;
+
+        }
+
+    }
