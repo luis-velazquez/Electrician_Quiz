@@ -18,32 +18,32 @@ let questions = [
     {
         question: "What is the name of this material?",
         imgSrc: "./material/12-mc.jpeg", 
-        choiceA: "12-3 MC Cable",
-        choiceB: "12-2 MC Cable",
+        choiceA: "12-3 MC",
+        choiceB: "12-2 MC",
         choiceC: "12-3 Romex",
         choiceD: "12-2 Romex",
         correct: "B",
     },{
         question: "What is the name of this material?",
         imgSrc: "./material/90-degree-liquid-tight-connector.png",
-        choiceA: "90 Degree EMT Connector",
-        choiceB: "90 Degree Romex Connector",
-        choiceC: "90 Degree MC Connector",
-        choiceD: "90 Degree Liquid Tight Connector",
+        choiceA: "90 EMT Connector",
+        choiceB: "90 Romex Connector",
+        choiceC: "90 MC Connector",
+        choiceD: "90 Liquid Tight Connector",
         correct: "D"
     },{
         question: "What is the name of this material?",
         imgSrc: "./material/90-degree-mc-connector.jpeg",
-        choiceA: "90 Degree Liquid Tight Connector",
-        choiceB: "90 Degree Romex Connector",
-        choiceC: "90 Degree MC Connector",
-        choiceD: "90 Degree EMT Connector",
+        choiceA: "90 Liquid Tight Connector",
+        choiceB: "90 Romex Connector",
+        choiceC: "90 MC Connector",
+        choiceD: "90 EMT Connector",
         correct: "C"
     },{
         question: "What is the REAL name of this material?",
         imgSrc: "./material/all-thread.jpeg",
         choiceA: "Screw Thread",
-        choiceB: "All Thread",
+        choiceB: "Twist Thread",
         choiceC: "Threaded Rod",
         choiceD: "Steel Rod",
         correct: "C"
@@ -232,13 +232,13 @@ let questions = [
         choiceD: "Splice Box",
         correct: "C"
     },{
-        question: "Which of the following is NOT a correct name of this product?",
+        question: "What is the name of this material?",
         imgSrc: "./material/gfci.png",
-        choiceA: "Wall Outlet",
-        choiceB: "Receptacle",
+        choiceA: "Three Way",
+        choiceB: "Ground Friction Interrupter (GFI)",
         choiceC: "Ground Fault Circuit Interrupter (GFCI)",
         choiceD: "Arc Fault Circuit Interrupter (AFCI)",
-        correct: "D"
+        correct: "C"
     },{
         question: "What is the name of this product?",
         imgSrc: "./material/grounding-bushing.jpeg",
@@ -267,7 +267,7 @@ let questions = [
         question: "What is the name of this material?",
         imgSrc: "./material/hoelsaw-arbor.png",
         choiceA: "Hole Saw Arbor",
-        choiceB: "Hole Saw Arboretum",
+        choiceB: "Hole Saw",
         choiceC: "Hole Saw Connector",
         choiceD: "Hole Saw Holder",
         correct: "A"
@@ -331,18 +331,10 @@ let questions = [
         question: "What is the name of this material?",
         imgSrc: "./material/pigtail.jpeg",
         choiceA: "Bonding Wire",
-        choiceB: "Stinger",
+        choiceB: "Sting Gray",
         choiceC: "Pigtail",
         choiceD: "Ground Wire",
         correct: "C"
-    },{
-        question: "What is the name of this material?",
-        imgSrc: "./material/power-pack.png",
-        choiceA: "Battery Pack",
-        choiceB: "Wall Pack",
-        choiceC: "Energy Pack",
-        choiceD: "Power Pack",
-        correct: "D"
     },{
         question: "What is the name of this material?",
         imgSrc: "./material/push-in-flange-clip.png",
@@ -569,18 +561,10 @@ let questions = [
         correct: "B"
     },{
         question: "What is the name of this material?",
-        imgSrc: "./material/weather-resitant-gfci.png",
-        choiceA: "Water Resistant GFCI",
-        choiceB: "Regular GFCI",
-        choiceC: "Tamper Resistant GFCI",
-        choiceD: "Weather Resistant GFCI",
-        correct: "D"
-    },{
-        question: "What is the name of this material?",
         imgSrc: "./material/wire-strippers.png",
         choiceA: "Cutters",
-        choiceB: "Stripper",
-        choiceC: "Stripper Wire",
+        choiceB: "Paid Stripper",
+        choiceC: "Easy Stripper",
         choiceD: "Wire Stripper",
         correct: "D"
     }
@@ -593,7 +577,7 @@ let questions = [
 const lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 let count = 0;
-const questionTime = 10; // 10s
+const questionTime = 20; 
 const gaugeWidth = 150; // 150px
 const gaugeUnit = gaugeWidth / questionTime;
 let TIMER;
