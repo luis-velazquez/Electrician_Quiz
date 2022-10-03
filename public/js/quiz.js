@@ -1,6 +1,7 @@
 // select all elements
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
+const qNumber = document.getElementById("qNumber");
 const question = document.getElementById("question");
 const qImg = document.getElementById("qImg");
 const choiceA = document.getElementById("A");
@@ -11,11 +12,14 @@ const counter = document.getElementById("counter");
 const timeGauge = document.getElementById("timeGauge");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
+const prevQuestion = document.getElementById('prevQuestion');
+const nextQuestion = document.getElementById('nextQuestion');
 
 // create our questions
 
 let questions = [
     {
+        _id: "1",
         question: "What is the name of this material?",
         imgSrc: "./material/12-mc.jpeg", 
         choiceA: "12-3 MC",
@@ -24,6 +28,7 @@ let questions = [
         choiceD: "12-2 Romex",
         correct: "B",
     },{
+        _id: "2",
         question: "What is the name of this material?",
         imgSrc: "./material/90-degree-liquid-tight-connector.png",
         choiceA: "90 EMT Connector",
@@ -32,6 +37,7 @@ let questions = [
         choiceD: "90 Liquid Tight Connector",
         correct: "D"
     },{
+        _id: "3",
         question: "What is the name of this material?",
         imgSrc: "./material/90-degree-mc-connector.jpeg",
         choiceA: "90 Liquid Tight Connector",
@@ -40,6 +46,7 @@ let questions = [
         choiceD: "90 EMT Connector",
         correct: "C"
     },{
+        _id: "4",
         question: "What is the REAL name of this material?",
         imgSrc: "./material/all-thread.jpeg",
         choiceA: "Screw Thread",
@@ -48,6 +55,7 @@ let questions = [
         choiceD: "Steel Rod",
         correct: "C"
     },{
+        _id: "5",
         question: "What is the name of this material?",
         imgSrc: "./material/bat-wing.png",
         choiceA: "Bird Wing",
@@ -56,6 +64,7 @@ let questions = [
         choiceD: "Bat Wing",
         correct: "D"
     },{
+        _id: "6",
         question: "What is the name of this material?",
         imgSrc: "./material/beam-clamp.png",
         choiceA: "Beam Clamp",
@@ -64,6 +73,7 @@ let questions = [
         choiceD: "Box Insert",
         correct: "A"
     },{
+        _id: "7",
         question: "What is the name of this material?",
         imgSrc: "./material/bell-box-cover.png",
         choiceA: "J-Box",
@@ -72,6 +82,7 @@ let questions = [
         choiceD: "Deep Box Cover",
         correct: "B"
     },{
+        _id: "8",
         question: "What is the name of this material?",
         imgSrc: "./material/box-bracket.png",
         choiceA: "Straight Brackets",
@@ -80,6 +91,7 @@ let questions = [
         choiceD: "Metal Sliders",
         correct: "C"
     },{
+        _id: "9",
         question: "What is the name of this material?",
         imgSrc: "./material/channel-lock.png",
         choiceA: "Needle Nose",
@@ -88,6 +100,7 @@ let questions = [
         choiceD: "Hammer",
         correct: "C"
     },{
+        _id: "10",
         question: "What is the name of this material?",
         imgSrc: "./material/compression-emt-connector.png",
         choiceA: "Romex Connector",
@@ -96,6 +109,7 @@ let questions = [
         choiceD: "EMT Connector",
         correct: "D"
     },{
+        _id: "11",
         question: "What is the name of this material?",
         imgSrc: "./material/compression-emt-coupling.png",
         choiceA: "Romex Coupling",
@@ -104,6 +118,7 @@ let questions = [
         choiceD: "EMT Coupling",
         correct: "D"
     },{
+        _id: "12",
         question: "What is the name of this material?",
         imgSrc: "./material/conduit-hanger.png",
         choiceA: "EMT Hanger",
@@ -112,6 +127,7 @@ let questions = [
         choiceD: "Strut",
         correct: "A"
     },{
+        _id: "13",
         question: "What is the name of this material?",
         imgSrc: "./material/cut-in-box.png",
         choiceA: "Receptacle Box",
@@ -120,6 +136,7 @@ let questions = [
         choiceD: "Shallow box",
         correct: "B"
     },{
+        _id: "14",
         question: "What is the SLANG name of this tool",
         imgSrc: "./material/diagonal-cutting-pliers.png",
         choiceA: "Channel Locks",
@@ -128,6 +145,7 @@ let questions = [
         choiceD: "Wire cutters",
         correct: "C"
     },{
+        _id: "15",
         question: "What is the name of this material?",
         imgSrc: "./material/drop-in-anchor.png",
         choiceA: "Threaded Rod Coupling",
@@ -136,6 +154,7 @@ let questions = [
         choiceD: "Drop-In Anchor",
         correct: "D"
     },{
+        _id: "16",
         question: "What is the name of this material?",
         imgSrc: "./material/duplex-connector.jpeg",
         choiceA: "EMT Duplex Connector",
@@ -144,6 +163,7 @@ let questions = [
         choiceD: "MC Duplex Connector",
         correct: "D"
     },{
+        _id: "17",
         question: "What is the name of this material?",
         imgSrc: "./material/easy-anchor.png",
         choiceA: "Easy Anchor",
@@ -152,6 +172,7 @@ let questions = [
         choiceD: "Chingadera",
         correct: "A"
     },{
+        _id: "18",
         question: "What is the name of this material?",
         imgSrc: "./material/electrical-box-bracket.png",
         choiceA: "Four Square Hanger",
@@ -160,6 +181,7 @@ let questions = [
         choiceD: "Self Tapper Bracket",
         correct: "B"
     },{
+        _id: "19",
         question: "What is the name of this material?",
         imgSrc: "./material/emt.jpeg",
         choiceA: "MC",
@@ -168,6 +190,7 @@ let questions = [
         choiceD: "EMT",
         correct: "D"
     },{
+        _id: "20",
         question: "What is the name of this material?",
         imgSrc: "./material/extension-ring.png",
         choiceA: "Four Square",
@@ -176,6 +199,7 @@ let questions = [
         choiceD: "Electrical Box",
         correct: "C"
     },{
+        _id: "22",
         question: "What is the name of this material?",
         imgSrc: "./material/f-bracket.png",
         choiceA: "Box Bracket",
@@ -184,6 +208,7 @@ let questions = [
         choiceD: "F Bracket",
         correct: "D"
     },{
+        _id: "23",
         question: "What is the name of this material?",
         imgSrc: "./material/fish-tape.png",
         choiceA: "Fish Tape",
@@ -192,6 +217,7 @@ let questions = [
         choiceD: "Conduit Tape",
         correct: "A"
     },{
+        _id: "24",
         question: "What is the name of this material?",
         imgSrc: "./material/flange-clip.png",
         choiceA: "Flange Clip",
@@ -200,6 +226,7 @@ let questions = [
         choiceD: "Clip For MC",
         correct: "A"
     },{
+        _id: "25",
         question: "What is the name of this material?",
         imgSrc: "./material/flex-connector.png",
         choiceA: "Squeeze Connector",
@@ -208,6 +235,7 @@ let questions = [
         choiceD: "Oversized Connector",
         correct: "A"
     },{
+        _id: "26",
         question: "What is the name of this material?",
         imgSrc: "./material/flex.jpeg",
         choiceA: "Twist",
@@ -216,6 +244,7 @@ let questions = [
         choiceD: "Flex",
         correct: "D"
     },{
+        _id: "27",
         question: "What is the name of this material?",
         imgSrc: "./material/four-square-box-cover.png",
         choiceA: "Four-Square Box Cover",
@@ -224,6 +253,7 @@ let questions = [
         choiceD: "Receptacle Box Cover",
         correct: "A"
     },{
+        _id: "28",
         question: "What is the name of this material?",
         imgSrc: "./material/four-square-box.png",
         choiceA: "Electrical Box",
@@ -232,6 +262,7 @@ let questions = [
         choiceD: "Splice Box",
         correct: "C"
     },{
+        _id: "29",
         question: "What is the name of this material?",
         imgSrc: "./material/gfci.png",
         choiceA: "Three Way",
@@ -240,6 +271,7 @@ let questions = [
         choiceD: "Arc Fault Circuit Interrupter (AFCI)",
         correct: "C"
     },{
+        _id: "30",
         question: "What is the name of this product?",
         imgSrc: "./material/grounding-bushing.jpeg",
         choiceA: "Grounding Bushing",
@@ -248,6 +280,7 @@ let questions = [
         choiceD: "Disconnect Bushing",
         correct: "A"
     },{
+        _id: "31",
         question: "What is the name of this Tool?",
         imgSrc: "./material/hammer-drill.png",
         choiceA: "Hammer Drill",
@@ -256,6 +289,7 @@ let questions = [
         choiceD: "Screw Drill",
         correct: "A"
     },{
+        _id: "32",
         question: "What is the name of this material?",
         imgSrc: "./material/hex-rod-coupling.png",
         choiceA: "Romex Coupling",
@@ -264,6 +298,7 @@ let questions = [
         choiceD: "Hex Rod Coupling",
         correct: "D"
     },{
+        _id: "33",
         question: "What is the name of this material?",
         imgSrc: "./material/hoelsaw-arbor.png",
         choiceA: "Hole Saw Arbor",
@@ -272,6 +307,7 @@ let questions = [
         choiceD: "Hole Saw Holder",
         correct: "A"
     },{
+        _id: "34",
         question: "What is the common name of this material?",
         imgSrc: "./material/jet-line.png",
         choiceA: "Jet-Line",
@@ -280,6 +316,7 @@ let questions = [
         choiceD: "Mill Tape",
         correct: "A"
     },{
+        _id: "35",
         question: "What is the name of this material?",
         imgSrc: "./material/linemans-pliers.png",
         choiceA: "Needle Nose Pliers",
@@ -288,6 +325,7 @@ let questions = [
         choiceD: "Lineman's Pliers",
         correct: "D"
     },{
+        _id: "36",
         question: "What is the name of this material?",
         imgSrc: "./material/liquid-tight-connector.png",
         choiceA: "Grounding Bushing",
@@ -296,6 +334,7 @@ let questions = [
         choiceD: "Flex Connector",
         correct: "B"
     },{
+        _id: "37",
         question: "What is the name of this material?",
         imgSrc: "./material/mud-ring.png",
         choiceA: "Receptacle Ring",
@@ -304,6 +343,7 @@ let questions = [
         choiceD: "Sheat Rock Ring",
         correct: "B"
     },{
+        _id: "38",
         question: "What is the name of this tool?",
         imgSrc: "./material/needle-nose-side-cutters.png",
         choiceA: "Long Pliers",
@@ -312,6 +352,7 @@ let questions = [
         choiceD: "Linesman's Pliers",
         correct: "C"
     },{
+        _id: "39",
         question: "What is the name of this material?",
         imgSrc: "./material/nut-driver.png",
         choiceA: "Nut Driver",
@@ -320,6 +361,7 @@ let questions = [
         choiceD: "Bolt Driver",
         correct: "A"
     },{
+        _id: "40",
         question: "What is the name of this material?",
         imgSrc: "./material/one-hole-strap.jpeg",
         choiceA: "Wall Strap",
@@ -328,6 +370,7 @@ let questions = [
         choiceD: "One Hole Strap",
         correct: "D"
     },{
+        _id: "41",
         question: "What is the name of this material?",
         imgSrc: "./material/pigtail.jpeg",
         choiceA: "Bonding Wire",
@@ -336,6 +379,7 @@ let questions = [
         choiceD: "Ground Wire",
         correct: "C"
     },{
+        _id: "42",
         question: "What is the name of this material?",
         imgSrc: "./material/push-in-flange-clip.png",
         choiceA: "EMT Connector",
@@ -344,6 +388,7 @@ let questions = [
         choiceD: "Push In EMT",
         correct: "C"
     },{
+        _id: "43",
         question: "What is the name of this material?",
         imgSrc: "./material/push-penny.jpeg",
         choiceA: "Push Penny",
@@ -352,6 +397,7 @@ let questions = [
         choiceD: "Push Money",
         correct: "A"
     },{
+        _id: "44",
         question: "What is the name of this material?",
         imgSrc: "./material/pvc-conduit.jpeg",
         choiceA: "EMT",
@@ -360,6 +406,7 @@ let questions = [
         choiceD: "RMC",
         correct: "B"
     },{
+        _id: "45",
         question: "What is the name of this material?",
         imgSrc: "./material/pvc-coupling.jpeg",
         choiceA: "EMT Coupling",
@@ -368,6 +415,7 @@ let questions = [
         choiceD: "RMC Coupling",
         correct: "B"
     },{
+        _id: "46",
         question: "What is the name of this material?",
         imgSrc: "./material/pvc-elbow-90.jpeg",
         choiceA: "Change Direction",
@@ -376,6 +424,7 @@ let questions = [
         choiceD: "Elbow ",
         correct: "D"
     },{
+        _id: "47",
         question: "What is the SLANG name of this material?",
         imgSrc: "./material/red-devil.png",
         choiceA: "Red Tip",
@@ -384,6 +433,7 @@ let questions = [
         choiceD: "Red Angel",
         correct: "C"
     },{
+        _id: "48",
         question: "What is the name of this material?",
         imgSrc: "./material/reducing-bushing.jpeg",
         choiceA: "Reducing Bushing",
@@ -392,6 +442,7 @@ let questions = [
         choiceD: "Rigid Bushing",
         correct: "A"
     },{
+        _id: "49",
         question: "What is the SLANG name of this material?",
         imgSrc: "./material/reducing-washer.jpeg",
         choiceA: "One hole Strap",
@@ -400,6 +451,7 @@ let questions = [
         choiceD: "Chinese Money",
         correct: "D"
     },{
+        _id: "50",
         question: "What is the name of this material?",
         imgSrc: "./material/rigid-coupling.jpeg",
         choiceA: "EMT Coupling",
@@ -408,6 +460,7 @@ let questions = [
         choiceD: "PVC Coupling",
         correct: "C"
     },{
+        _id: "51",
         question: "What is the name of this material?",
         imgSrc: "./material/self-tapper.png",
         choiceA: "Metal Screw",
@@ -416,6 +469,7 @@ let questions = [
         choiceD: "Metal Tapper",
         correct: "B"
     },{
+        _id: "52",
         question: "What is the name of this material?",
         imgSrc: "./material/set-screw-coupling.png",
         choiceA: "Set Screw Coupling",
@@ -424,6 +478,7 @@ let questions = [
         choiceD: "Set Screw Holder",
         correct: "A"
     },{
+        _id: "53",
         question: "What is the name of this material?",
         imgSrc: "./material/set-screw-emt-connector.png",
         choiceA: "EMT Connector",
@@ -432,6 +487,7 @@ let questions = [
         choiceD: "Flex Connector",
         correct: "A"
     },{
+        _id: "54",
         question: "What is the name of this material?",
         imgSrc: "./material/side-mount-flange-clip.png",
         choiceA: "Side Mount Connector",
@@ -440,6 +496,7 @@ let questions = [
         choiceD: "90 Flange Clip",
         correct: "B"
     },{
+        _id: "55",
         question: "What is the name of this material?",
         imgSrc: "./material/side-mount-push-in-flange-clip.png",
         choiceA: "Side Mount Push In Flange Clip",
@@ -448,6 +505,7 @@ let questions = [
         choiceD: "EMT Clip",
         correct: "A"
     },{
+        _id: "56",
         question: "What is the name of this material?",
         imgSrc: "./material/single-gang-industrial-box-cover.png",
         choiceA: "Single Gang Box Cover",
@@ -456,6 +514,7 @@ let questions = [
         choiceD: "Single Gang Industrial Box Cover",
         correct: "D"
     },{
+        _id: "57",
         question: "What is the name of this material?",
         imgSrc: "./material/single-gang-low-voltage-mounting-plate.png",
         choiceA: "Receptacle Mounting Plate",
@@ -464,6 +523,7 @@ let questions = [
         choiceD: "Four Square Mounting Plate",
         correct: "C"
     },{
+        _id: "58",
         question: "What is the name of this material?",
         imgSrc: "./material/snap-in-connector.png",
         choiceA: "Snap In Connector",
@@ -472,6 +532,7 @@ let questions = [
         choiceD: "Quick Connector",
         correct: "A"
     },{
+        _id: "59",
         question: "What is the name of this material?",
         imgSrc: "./material/squeeze-connector.jpeg",
         choiceA: "Screw Connector",
@@ -480,6 +541,7 @@ let questions = [
         choiceD: "Transformer Connector",
         correct: "B"
     },{
+        _id: "60",
         question: "What is the name of this material?",
         imgSrc: "./material/step-bit.png",
         choiceA: "Knock Out",
@@ -488,6 +550,7 @@ let questions = [
         choiceD: "Step Bit",
         correct: "D"
     },{
+        _id: "61",
         question: "What is the name of this material?",
         imgSrc: "./material/strut-strap.jpeg",
         choiceA: "Strut EMT Hanger",
@@ -496,6 +559,7 @@ let questions = [
         choiceD: "Strut Strap",
         correct: "D"
     },{
+        _id: "62",
         question: "What is the name of this material?",
         imgSrc: "./material/t-bar-box-hanger.png",
         choiceA: "T-Bar Box Hanger",
@@ -504,6 +568,7 @@ let questions = [
         choiceD: "Electrical Box Holder",
         correct: "A"
     },{
+        _id: "63",
         question: "What is the name of this material?",
         imgSrc: "./material/tapcon.png",
         choiceA: "Self Tapper",
@@ -512,6 +577,7 @@ let questions = [
         choiceD: "Blue Screw",
         correct: "C"
     },{
+        _id: "64",
         question: "What is the name of this material?",
         imgSrc: "./material/turn-lock-plug.png",
         choiceA: "Turn Lock Plug",
@@ -520,6 +586,7 @@ let questions = [
         choiceD: "Circular Outlet",
         correct: "A"
     },{
+        _id: "65",
         question: "What is the name of this material?",
         imgSrc: "./material/two-device-mud-ring.png",
         choiceA: "Double Gang Receptacle Ring",
@@ -528,6 +595,7 @@ let questions = [
         choiceD: "Receptacle Ring",
         correct: "B"
     },{
+        _id: "66",
         question: "What is the name of this material?",
         imgSrc: "./material/unistrut.jpeg",
         choiceA: "Unistrut",
@@ -536,6 +604,7 @@ let questions = [
         choiceD: "Light Hanger",
         correct: "A"
     },{
+        _id: "67",
         question: "What is the name of this material?",
         imgSrc: "./material/universal-beam-clamp.png",
         choiceA: "Strut Clamp",
@@ -544,6 +613,7 @@ let questions = [
         choiceD: "Universal Beam Clamp",
         correct: "D"
     },{
+        _id: "68",
         question: "What is the name of this material?",
         imgSrc: "./material/wall-pack.png",
         choiceA: "Wall Pack",
@@ -552,6 +622,7 @@ let questions = [
         choiceD: "Power Light",
         correct: "A"
     },{
+        _id: "69",
         question: "What is the name of this material?",
         imgSrc: "./material/weather-proof-box.png",
         choiceA: "PVC Electrical Box",
@@ -560,6 +631,7 @@ let questions = [
         choiceD: "Single Device Box",
         correct: "B"
     },{
+        _id: "70",
         question: "What is the name of this material?",
         imgSrc: "./material/wire-strippers.png",
         choiceA: "Cutters",
@@ -574,7 +646,7 @@ let questions = [
 
 // create some variables
 
-const lastQuestion = questions.length - 1;
+const lastQuestion = questions.length - 1; 
 let runningQuestion = 0;
 let count = 0;
 const questionTime = 20; 
@@ -583,10 +655,25 @@ const gaugeUnit = gaugeWidth / questionTime;
 let TIMER;
 let score = 0;
 
+
+
+//render next question
+nextQuestion.onclick = function() {
+        runningQuestion++;
+        renderQuestion();
+    
+}
+// render previous question
+prevQuestion.onclick = function() {
+        runningQuestion--;
+        renderQuestion();
+}
+
 // render a question
 function renderQuestion(){
     let q = questions[runningQuestion];
     
+    qNumber.innerHTML = "<p>" + q._id + "</p>"
     question.innerHTML = "<p>"+ q.question +"</p>";
     qImg.innerHTML = "<img src="+ q.imgSrc +">";
     choiceA.innerHTML = q.choiceA;
@@ -616,25 +703,25 @@ function renderProgress(){
 
 // counter render
 
-function renderCounter(){
-    if(count <= questionTime){
-        counter.innerHTML = count;
-        timeGauge.style.width = count * gaugeUnit + "px";
-        count++
-    }else{
-        count = 0;
-        // change progress color to red
-        answerIsWrong();
-        if(runningQuestion < lastQuestion){
-            runningQuestion++;
-            renderQuestion();
-        }else{
-            // end the quiz and show the score
-            clearInterval(TIMER);
-            scoreRender();
-        }
-    }
-}
+// function renderCounter(){
+//     if(count <= questionTime){
+//         counter.innerHTML = count;
+//         timeGauge.style.width = count * gaugeUnit + "px";
+//         count++
+//     }else{
+//         count = 0;
+//         // change progress color to red
+//         answerIsWrong();
+//         if(runningQuestion < lastQuestion){
+//             runningQuestion++;
+//             renderQuestion();
+//         }else{
+//             // end the quiz and show the score
+//             clearInterval(TIMER);
+//             scoreRender();
+//         }
+//     }
+// }
 
 // checkAnwer
 

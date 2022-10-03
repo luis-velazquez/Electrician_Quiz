@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Quiz</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="../app.js"></script>
 </head>
+
 <body>
     <div id="container">
         <div id="start">Start Quiz!</div>
         <div id="quiz" style="display: none">
-            <div id="qNumber"></div>
+            <div id="qNumber">
+            </div>
+            <button id="prevQuestion">Previous</button>
+            <button id="nextQuestion">Next</button>
             <div id="question"></div>
             <div id="qImg"></div>
             <div id="choices">
@@ -21,8 +26,8 @@
             </div>
             <div id="timer">
                 <div id="counter"></div>
-                <div id="btimeGauge"></div>
-                <div id="timeGauge"></div>
+                <!-- <div id="btimeGauge"></div> -->
+                <!-- <div id="timeGauge"></div> -->
             </div>
             <div id="progress"></div>
         </div>
@@ -30,4 +35,5 @@
     </div>
     <script src="./js/quiz.js"></script>
 </body>
+
 </html>
