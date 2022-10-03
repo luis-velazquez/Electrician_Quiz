@@ -204,6 +204,14 @@ button {
         position: relative;
     }
 
+    button {
+        font-size: 30px;
+        padding: 10px 24px;
+        border-radius: 4px;
+        margin: 10px 3px 0px 13px;
+        position: relative;
+    }
+
     #qImg img {
         width: 400px;
         height: 400px;
